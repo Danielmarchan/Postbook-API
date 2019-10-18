@@ -4,6 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const multer = require('multer');
+const helmet = require('helmet');
+const compression = require('compression');
 
 const feedRoutes = require('./routes/feed');
 const authRoutes = require('./routes/auth');
@@ -15,7 +17,7 @@ const fileStorage = multer.diskStorage({
     cb(null, 'images');
   },
   filename: (req, file, cb) => {
-    cb(null, new Date().toISOString() + '-' + file.originalname);
+    cb(null, new Date().toDateString() + '-' + file.originalname);
   }
 });
 
@@ -48,6 +50,9 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(helmet());
+app.use(compression());
+
 app.use('/feed', feedRoutes);
 app.use('/auth', authRoutes);
 
@@ -61,7 +66,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/messages?retryWrites=true'
+    'mongodb+srv://daniel:Mis7Datos9@danielcluster-ms0hm.mongodb.net/Postbook?'
   )
   .then(result => {
     const server = app.listen(8080);
