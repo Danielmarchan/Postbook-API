@@ -69,7 +69,7 @@ mongoose
     'mongodb+srv://daniel:Mis7Datos9@danielcluster-ms0hm.mongodb.net/Postbook?'
   )
   .then(result => {
-    const server = app.listen(8080);
+    app.listen( process.env.PORT || 8080);
     const io = require('./socket').init(server);
     io.on('connection', socket => {
       console.log('Client connected');
