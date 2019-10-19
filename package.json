@@ -14,7 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/udemy-course-nodejs-complete"
+    "url": ""
+  },
+  "engines": {
+    "node": "10.16.2"
   },
   "author": "",
   "license": "ISC",
