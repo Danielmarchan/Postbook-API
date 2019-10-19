@@ -1,5 +1,5 @@
 {
-  "name": "Postbook API",
+  "name": "postbook-api",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -15,9 +15,6 @@
   "repository": {
     "type": "git",
     "url": ""
-  },
-  "engines": {
-    "node": "10.16.2"
   },
   "author": "",
   "license": "ISC",
