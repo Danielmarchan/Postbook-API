@@ -41,7 +41,7 @@ app.use(
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', 'https://danielmarchan.github.io');
   res.setHeader(
     'Access-Control-Allow-Methods',
     'OPTIONS, GET, POST, PUT, PATCH, DELETE'
@@ -69,7 +69,7 @@ mongoose
     'mongodb+srv://daniel:Mis7Datos9@danielcluster-ms0hm.mongodb.net/Postbook?'
   )
   .then(result => {
-    app.listen( process.env.PORT || 8080);
+    const server = app.listen( process.env.PORT || 8080);
     const io = require('./socket').init(server);
     io.on('connection', socket => {
       console.log('Client connected');
